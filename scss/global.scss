@@ -1,0 +1,405 @@
+/* Default settings */
+@import url('https://fonts.googleapis.com/css?family=Open+Sans');
+
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video{
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  vertical-align: baseline; 
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section {
+  display: block; 
+}
+table {
+  border-collapse: collapse;
+  border-spacing: 0; 
+}
+/* #COLOR VARIABLES DEFINE
+====================================================== */
+$basic-color : #333;
+$text-color : #F98E0D;
+$orange-color : #fc8c2a;
+$link-color : #004DAC;
+$white-color : #fff;
+
+$size-15: 15px;
+
+/* #MIXINS DEFINE with function
+====================================================== */
+@mixin flexbox() {
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+}
+
+@mixin flex($values) {
+  -webkit-box-flex: $values;
+  -moz-box-flex:  $values;
+  -webkit-flex:  $values;
+  -ms-flex:  $values;
+  flex:  $values;
+}
+
+@mixin order($val) {
+  -webkit-box-ordinal-group: $val;  
+  -moz-box-ordinal-group: $val;     
+  -ms-flex-order: $val;     
+  -webkit-order: $val;  
+  order: $val;
+}
+
+/* #Extend/Inheritance
+===================================================== */
+.no-repat{
+	background-position: left top;
+	background-repeat: no-repeat;
+}
+
+
+/* Base Styles
+======================================================  */
+body {
+	font-size: 14px;
+	line-height: 1.4;
+	font-weight: 400;
+	font-family: 'Open Sans';
+	color: $basic-color; 
+}
+.container{ 
+	margin: 0 auto;
+	width: 1400px;
+	@include flexbox();
+}
+img{
+	max-width:100%;
+	vertical-align:top
+}
+*,:before,:after {
+	-webkit-box-sizing:border-box;
+	-moz-box-sizing:border-box;
+	box-sizing:border-box
+}
+.clearfix{
+	clear:both;
+	
+	&:after{
+		content: "";
+		display: table;
+		clear: both; 
+	}
+}
+li{
+	list-style:none;
+}
+/* Links
+======================================================  */
+a {
+	color:$link-color;
+	text-decoration:none;
+	outline:0!important;
+	vertical-align: top;
+	
+	&.grey-link{
+		color: $basic-color;
+		
+		&:hover{
+			color: rgb(153, 153, 153);
+			text-decoration: none;
+		}
+	}
+	
+	&:hover{
+		text-decoration:underline;
+	}	
+}
+.shadowbox{
+	display: none;
+}
+
+
+
+
+
+.fullwidthcon{ }
+.icon-left{}
+.orange_bg{ }
+.shadowbootm{}
+.full-icon{}
+.blue-link{}
+.grey-link{}
+.orangebutton{}
+.notfilorngbut{}
+.smallbutton{}
+.alignright{}
+.form-row{}
+.form-item{}
+.form-action{}
+.filed-8{}
+.spacingcolumns{}
+.butonalign{}
+.delte-outer{}
+.delte-icon{}
+.filed-full{}
+.profilconthalf{}
+.float-left{}
+
+.clickcont-show{}
+.showon-hver{}
+
+/* #GLOBAL CSS CONTENT 
+======================================= */
+.redicon{
+	position: absolute;
+	height: 14px;
+	width: 14px;
+	border-radius: 50%;
+	background-color: #ff000b;
+	top: -7px;
+	right: -7px;
+}
+.shadowcreate {
+	@extend .no-repat;
+	background-image: url(../images/shadow.png);
+	background-position: center -1px;
+	padding-bottom: 40px;
+}
+
+/* #HEADER GLOBAL CSS
+======================================= */
+header{
+	background-color: $orange-color;
+	padding: 5px 0;
+	
+	.container{
+		align-items: center;
+	}
+	
+	.logo{
+		margin-right: 20px;		
+		
+		a:hover{
+			img{
+				opacity: 0.6;
+			}
+		}
+	}
+	.menu{
+		margin-right: auto;		
+		position: relative;	
+		
+		& > a{
+			@extend .no-repat;
+			font-size: $size-15;
+			font-weight: bold;
+			padding-left: 30px;
+			position: relative;
+			
+			&:after{
+				content: "";
+				position: absolute;
+				height: 9px;
+				width: 22px;
+				left: 0;
+				bottom: 0;
+				border-top: 3px solid;
+				border-bottom: 3px solid;	
+			}
+			&:before{
+				content: "";
+				position: absolute;
+				left: 0;
+				top: 0;
+				height: 9px;
+				width: 22px;
+				border-top: 3px solid;
+				border-bottom: 3px solid;	
+			}
+		}
+	}
+	.right_menu{		
+		ul{
+			@include flexbox();
+			align-items: center;
+		}	
+		li{
+			margin-left: 15px;
+			position: relative;
+		}
+		.user_name{
+			font-size: $size-15;
+			color: $white-color;
+		}
+		.shrimailcon{
+			a{
+				background-image: url(../images/sprite.png)	;
+				font-size: 0;
+				width: 28px;
+				height: 20px;
+				background-position: -3px -3px;
+				display: block;
+			}
+		}
+		.flag_icon{
+			a{
+				background-image: url(../images/sprite.png)	;
+				font-size: 0;
+				width: 19px;
+				height: 20px;
+				background-position: -3px -25px;
+				display: block;				
+			}
+		}
+		.settingicon{
+			a{
+				font-size: 0;
+				width: 16px;
+				height: 16px;
+				display: block;
+				background-image: url(../images/sprite.png);
+				background-position: -3px -48px;	
+			}
+		}		
+		.signout{
+			a{
+				line-height: 32px;
+				padding: 0 15px;
+				display: block;
+				background-color: #fece9d;
+				border-radius: 3px;
+				font-weight: bold;
+				color: $text-color ;
+				
+				&:hover{
+					background-color: #fdba74;
+					color: $white-color;
+					text-decoration: none;
+				}
+			}
+		}
+	}
+}
+/* #PAGE HEADING GREY BG
+======================================= */
+.heading-grey-bg{
+	.title-con{
+		
+	}
+	strong{
+			
+	}
+	span{
+		
+	}
+}
+
+/* #FOOTER GLOBAL CSS
+======================================= */
+.footer-region-top{
+	padding: 20px 0;
+	margin-top: 80px;
+	background-color: $orange-color;
+	
+	.container{
+		justify-content: space-between;	
+	}
+	.box-left{
+		position: relative;		
+	}
+	.box-right{
+		text-align: right;
+		
+		.logo_foo{
+			
+		}	
+		h6{
+			line-height: 31px;
+			margin: 15px 0;	
+		}
+	}
+	.foo_socil{
+		@include flexbox();
+		
+		li{
+			margin-right: 8px;	
+		}
+		a{
+			
+		}
+	}
+	.foo_menu{
+		@include flexbox();
+		li{
+			border-right: 1px solid $white-color ;
+			line-height: 18px;
+			padding: 0 10px;	
+			
+			&:last-child{
+				padding-right: 0;
+				border: 0px;
+			}
+		}
+		a{
+			color: $white-color ;	
+			font-size: $size-15;
+		}
+	}
+	.autoimgfooter{
+		position: absolute;
+		bottom: -20px;	
+	}
+}
+/* footer bottom */
+.footer-region-bottom{
+	line-height: 1.4;
+	margin-bottom: 30px;
+	
+	.container{
+		justify-content: space-between;	
+	}
+}
+.secutity{
+	ul{
+		@include flexbox();
+		margin-top: 15px;
+		
+		img{
+			height: 35px;
+		}
+		
+		li:last-child{
+			margin-left: 15px;
+			padding-left: 15px;
+			border-left: 1px solid $basic-color;
+		}
+	}	
+}
+.copy_right{
+	text-align: right;
+	font-size: 12px;
+	
+	ul{
+		@include flexbox();	
+		justify-content: flex-end;
+		line-height: 1;
+	}
+	
+	p{
+		margin-top: 15px;
+	}
+	li:last-child{
+		border-left: 1px solid $basic-color;
+		padding-left: 10px;
+		margin-left: 10px;
+	}
+	.linkgrey{
+		color:$basic-color;
+		
+		&:hover{
+			color: $link-color;
+		}
+	}
+}
